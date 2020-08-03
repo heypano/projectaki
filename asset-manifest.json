@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/projectaki/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/projectaki/static/js/main.b5fa5475.chunk.js",
-    "main.js.map": "/projectaki/static/js/main.b5fa5475.chunk.js.map",
+    "main.js": "/projectaki/static/js/main.853babc5.chunk.js",
+    "main.js.map": "/projectaki/static/js/main.853babc5.chunk.js.map",
     "runtime-main.js": "/projectaki/static/js/runtime-main.3483eada.js",
     "runtime-main.js.map": "/projectaki/static/js/runtime-main.3483eada.js.map",
     "static/css/2.6c6d28cf.chunk.css": "/projectaki/static/css/2.6c6d28cf.chunk.css",
     "static/js/2.485c1bd5.chunk.js": "/projectaki/static/js/2.485c1bd5.chunk.js",
     "static/js/2.485c1bd5.chunk.js.map": "/projectaki/static/js/2.485c1bd5.chunk.js.map",
     "index.html": "/projectaki/index.html",
-    "precache-manifest.db225a2818b67d60035e431f04d539cf.js": "/projectaki/precache-manifest.db225a2818b67d60035e431f04d539cf.js",
+    "precache-manifest.c20716b920a20b1ec9cf1e6da7f81a05.js": "/projectaki/precache-manifest.c20716b920a20b1ec9cf1e6da7f81a05.js",
     "service-worker.js": "/projectaki/service-worker.js",
     "static/css/2.6c6d28cf.chunk.css.map": "/projectaki/static/css/2.6c6d28cf.chunk.css.map",
     "static/css/main.5ecd60fb.chunk.css.map": "/projectaki/static/css/main.5ecd60fb.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.6c6d28cf.chunk.css",
     "static/js/2.485c1bd5.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.b5fa5475.chunk.js"
+    "static/js/main.853babc5.chunk.js"
   ]
 }
