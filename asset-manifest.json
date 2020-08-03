@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/static/js/main.9608dff7.chunk.js",
-    "main.js.map": "/static/js/main.9608dff7.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.2f8608fb.js",
-    "runtime-main.js.map": "/static/js/runtime-main.2f8608fb.js.map",
-    "static/css/2.6c6d28cf.chunk.css": "/static/css/2.6c6d28cf.chunk.css",
-    "static/js/2.485c1bd5.chunk.js": "/static/js/2.485c1bd5.chunk.js",
-    "static/js/2.485c1bd5.chunk.js.map": "/static/js/2.485c1bd5.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.27b5a248283c062b2df67ba310b3b3ea.js": "/precache-manifest.27b5a248283c062b2df67ba310b3b3ea.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.6c6d28cf.chunk.css.map": "/static/css/2.6c6d28cf.chunk.css.map",
-    "static/css/main.5ecd60fb.chunk.css.map": "/static/css/main.5ecd60fb.chunk.css.map",
-    "static/js/2.485c1bd5.chunk.js.LICENSE.txt": "/static/js/2.485c1bd5.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/static/media/logo.5d5d9eef.svg"
+    "main.css": "/projectaki/static/css/main.5ecd60fb.chunk.css",
+    "main.js": "/projectaki/static/js/main.4b4ad29c.chunk.js",
+    "main.js.map": "/projectaki/static/js/main.4b4ad29c.chunk.js.map",
+    "runtime-main.js": "/projectaki/static/js/runtime-main.3483eada.js",
+    "runtime-main.js.map": "/projectaki/static/js/runtime-main.3483eada.js.map",
+    "static/css/2.6c6d28cf.chunk.css": "/projectaki/static/css/2.6c6d28cf.chunk.css",
+    "static/js/2.485c1bd5.chunk.js": "/projectaki/static/js/2.485c1bd5.chunk.js",
+    "static/js/2.485c1bd5.chunk.js.map": "/projectaki/static/js/2.485c1bd5.chunk.js.map",
+    "index.html": "/projectaki/index.html",
+    "precache-manifest.4461997932fd24ad8835089b4b3c57e7.js": "/projectaki/precache-manifest.4461997932fd24ad8835089b4b3c57e7.js",
+    "service-worker.js": "/projectaki/service-worker.js",
+    "static/css/2.6c6d28cf.chunk.css.map": "/projectaki/static/css/2.6c6d28cf.chunk.css.map",
+    "static/css/main.5ecd60fb.chunk.css.map": "/projectaki/static/css/main.5ecd60fb.chunk.css.map",
+    "static/js/2.485c1bd5.chunk.js.LICENSE.txt": "/projectaki/static/js/2.485c1bd5.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/projectaki/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.2f8608fb.js",
+    "static/js/runtime-main.3483eada.js",
     "static/css/2.6c6d28cf.chunk.css",
     "static/js/2.485c1bd5.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.9608dff7.chunk.js"
+    "static/js/main.4b4ad29c.chunk.js"
   ]
 }
