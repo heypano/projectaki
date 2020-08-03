@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "c3f7a2ef38f4bb7a2a680418d1132c08",
+    "revision": "af54e80ce6d32315cfc70abf28a74667",
     "url": "/projectaki/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/projectaki/static/css/2.6c6d28cf.chunk.css"
   },
   {
-    "revision": "2492dbdaa042629b9bd5",
+    "revision": "5c1388c5c0e34f3f3b1b",
     "url": "/projectaki/static/css/main.5ecd60fb.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/projectaki/static/js/2.485c1bd5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2492dbdaa042629b9bd5",
-    "url": "/projectaki/static/js/main.4b4ad29c.chunk.js"
+    "revision": "5c1388c5c0e34f3f3b1b",
+    "url": "/projectaki/static/js/main.b5fa5475.chunk.js"
   },
   {
     "revision": "92c76e92a4d5e423c246",
