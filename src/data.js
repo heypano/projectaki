@@ -1,7 +1,7 @@
 import combinations from "combinations";
 import React from "react";
 
-export const greekVowels = "αάεέιίυύηήοόωώ";
+export const greekVowels = "αάεέιίυύηήοόωώς";
 export const englishVowels = "aeiouy";
 export const vowels = `${englishVowels}${greekVowels}`;
 
@@ -172,12 +172,12 @@ export const combineWords = (message = "", ending = "", links = []) => {
  * @return {[]}
  */
 export const getCombinations = (message = "") => {
+  const result = [];
   const allLinks = [[], ...combinations(Object.keys(links))];
-  return Object.keys(endings).map((ending, endingIndex) =>
-    allLinks.map((currentLinks, linkIndex) => (
-      <div className="pr-4" key={`${endingIndex}_${linkIndex}`}>
-        {combineWords(message, ending, currentLinks)}
-      </div>
-    ))
+  Object.keys(endings).map((ending, endingIndex) =>
+    allLinks.forEach((currentLinks, linkIndex) =>
+      result.push(combineWords(message, ending, currentLinks))
+    )
   );
+  return result.sort((a, b) => a.length - b.length);
 };

@@ -36,7 +36,11 @@ function App() {
             {/*<br />*/}
             {message && (
               <div className="d-flex flex-row flex-wrap align-items-center">
-                {getCombinations(message)}
+                {getCombinations(message).map((combo, index) => (
+                  <div className="pr-4" key={`${index}`}>
+                    {combo}
+                  </div>
+                ))}
               </div>
             )}
             {/*{isFinalVowel && <span>{message} ends in a vowel</span>}*/}
