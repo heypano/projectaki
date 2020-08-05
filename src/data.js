@@ -79,6 +79,9 @@ export const endings = {
   ίτα: {
     en: "ita"
   },
+  ίτο: {
+    en: "ito"
+  },
   πίτσι: {
     en: "pitsi"
   },
