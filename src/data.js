@@ -14,6 +14,7 @@ export const vowelStressMap = {
   ί: "ι",
   έ: "ε",
   ό: "ο",
+  ώ: "ω",
   ή: "η",
   υ: "υ"
 };
