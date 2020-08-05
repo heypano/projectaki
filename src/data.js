@@ -24,12 +24,12 @@ export const vowelStressMap = {
  */
 export const strings = {
   aki: {
-    gr: "ακι",
+    gr: "Yποκοριστιράκι",
     en: "aki"
   },
   getYourYpokoristiko: {
-    gr: <span>Ενα Τσουβάλι Παρατσούκλια</span>,
-    en: <span>A Bunch Of Greek Nicknames</span>
+    gr: <span>Παραγωγούλης Υποκοριστικούληδων</span>,
+    en: <span>Greek Nickname Generator</span>
   },
   whatsYourName: {
     gr: "Πώς σε λένε;",

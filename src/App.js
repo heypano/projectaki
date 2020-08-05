@@ -9,7 +9,7 @@ import { getCombinations, getString } from "./data";
 function App({ language: initialLanguage }) {
   const { word = "" } = useParams();
   const { push: redirect } = useHistory();
-  const [message, setMessage] = useState(word);
+  const [message, setMessage] = useState(decodeURIComponent(word));
   const [language, setLanguage] = useState(initialLanguage);
   const textField = useRef();
   const s = code => getString(code, language);
@@ -20,7 +20,9 @@ function App({ language: initialLanguage }) {
         <div className="col-12">
           <div className="d-flex justify-content-between">
             <h3>
-              <strong className="mr-5">{s("aki")}</strong>
+              <strong className="mr-5 d-block d-lg-inline mb-3 mb-lg-0">
+                {s("aki")}
+              </strong>
               {s("getYourYpokoristiko")}
             </h3>
             <h3>
@@ -86,7 +88,7 @@ function App({ language: initialLanguage }) {
               <div className="row">
                 {getCombinations(message, language).map((combo, index) => (
                   <div
-                    className="col-6 col-md-2 col-lg-3 text-break"
+                    className="col-12 col-md-6 col-lg-4 text-break"
                     style={{
                       hyphens: "auto"
                     }}
