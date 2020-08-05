@@ -1,7 +1,7 @@
 import combinations from "combinations";
 import React from "react";
 
-export const greekVowels = "αάεέιίυύηήοόωώς";
+export const greekVowels = "αάεέιίυύηήοόωώ";
 export const englishVowels = "aeiouy";
 export const vowels = `${englishVowels}${greekVowels}`;
 
@@ -155,6 +155,7 @@ export const startsWithAVowel = (string = "") => {
  * @return {string}
  */
 export const getRoot = (string = "") => {
+  string = string.replace(/ς$/i, "");
   // At least one non vowel, otherwise return the same
   const regex = new RegExp(`(.*)([^${vowels}])([${vowels}]*)$`, "i");
   return string.trim().replace(regex, "$1$2");

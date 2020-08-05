@@ -13,6 +13,11 @@ function App({ language: initialLanguage }) {
   const [language, setLanguage] = useState(initialLanguage);
   const textField = useRef();
   const s = code => getString(code, language);
+  const onSubmit = e => {
+    e.preventDefault();
+    setMessage(textField.current.value);
+    redirect(`/${language}/${encodeURIComponent(textField.current.value)}`);
+  };
 
   return (
     <div className="container mt-5">
@@ -59,7 +64,7 @@ function App({ language: initialLanguage }) {
               </a>
             </h3>
           </div>
-          <div className="input-group mb-3">
+          <form onSubmit={onSubmit} className="input-group mb-3">
             <input
               type="text"
               ref={textField}
@@ -67,18 +72,10 @@ function App({ language: initialLanguage }) {
               placeholder={s("whatsYourName")}
               defaultValue={message}
             />
-            <button
-              className="btn btn-primary"
-              onClick={() => {
-                setMessage(textField.current.value);
-                redirect(
-                  `/${language}/${encodeURIComponent(textField.current.value)}`
-                );
-              }}
-            >
+            <button className="btn btn-primary" onClick={onSubmit}>
               {s("submitText")}
             </button>
-          </div>
+          </form>
         </div>
         <div className="col-12">
           <div>
