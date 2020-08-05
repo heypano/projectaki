@@ -88,6 +88,9 @@ export const endings = {
   ίνι: {
     en: "ini"
   },
+  ίνo: {
+    en: "ino"
+  },
   όνι: {
     en: "oni"
   },
@@ -99,6 +102,33 @@ export const endings = {
   },
   ούιν: {
     en: "ouin"
+  },
+  κεφτεδάκι: {
+    en: "keftedaki"
+  },
+  σφαίρα: {
+    en: "sfera"
+  },
+  φάση: {
+    en: "fasi"
+  },
+  σπιτο: {
+    en: "spito"
+  },
+  οεσάνς: {
+    en: "οesans"
+  },
+  αινα: {
+    en: "ena"
+  },
+  σφαίριση: {
+    en: "sferisi"
+  },
+  φλερτ: {
+    en: "flert"
+  },
+  όραμα: {
+    en: "orama"
   }
 };
 
