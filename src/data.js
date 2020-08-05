@@ -205,14 +205,14 @@ export const combineWords = (message = "", ending = "", links = []) => {
 export const getCombinations = (message = "", language = "gr") => {
   const result = [];
   const translatedLinks =
-    language == "gr"
+    language === "gr"
       ? Object.keys(links)
       : Object.keys(links).map(key => {
           return links[key][language];
         });
   const allLinks = [[], ...combinations(translatedLinks)];
   const translatedEndings =
-    language == "gr"
+    language === "gr"
       ? Object.keys(endings)
       : Object.keys(endings).map(key => endings[key][language]);
 
