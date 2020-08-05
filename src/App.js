@@ -1,32 +1,39 @@
 import React, { useRef, useState } from "react";
-import logo from "./logo.svg";
 import "bootstrap/dist/css/bootstrap-reboot.min.css";
 import "bootstrap/dist/css/bootstrap-grid.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import {
-  combineWords,
-  destress,
-  endings,
-  endsInAVowel,
-  getCombinations,
-  getRoot
-} from "./data";
+import "./index.css";
+import { useParams } from "react-router-dom";
+import { getCombinations, getString } from "./data";
 
-function App() {
-  const [message, setMessage] = useState("");
+function App({ language: initialLanguage }) {
+  const { word } = useParams();
+  const [message, setMessage] = useState(word);
+  const [language, setLanguage] = useState(initialLanguage);
   const textField = useRef();
-  const isFinalVowel = endsInAVowel(message);
+  const s = code => getString(code, language);
+
   return (
     <div className="container mt-5">
       <div className="row">
-        <div className="col-12 col-md-6">
-          <div className="input-group">
-            <input type="text" ref={textField} className="form-control mr-4" />
+        <div className="col-12 col-md-8">
+          <h3>
+            <strong className="mr-5">{s("aki")}</strong>
+            {s("getYourYpokoristiko")}
+          </h3>
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              ref={textField}
+              className="form-control mr-4"
+              placeholder={s("whatsYourName")}
+              defaultValue={message}
+            />
             <button
               className="btn btn-primary"
               onClick={() => setMessage(textField.current.value)}
             >
-              Για πές
+              {s("submitText")}
             </button>
           </div>
         </div>
@@ -35,16 +42,20 @@ function App() {
             {/*<span>{destress(getRoot(message))}</span>*/}
             {/*<br />*/}
             {message && (
-              <div className="d-flex flex-row flex-wrap align-items-center">
-                {getCombinations(message).map((combo, index) => (
-                  <div className="pr-4" key={`${index}`}>
+              <div className="row">
+                {getCombinations(message, language).map((combo, index) => (
+                  <div
+                    className="col-6 col-md-2 col-lg-3 text-break"
+                    style={{
+                      hyphens: "auto"
+                    }}
+                    key={`${index}`}
+                  >
                     {combo}
                   </div>
                 ))}
               </div>
             )}
-            {/*{isFinalVowel && <span>{message} ends in a vowel</span>}*/}
-            {/*{!isFinalVowel && <span>{message} does not end in a vowel</span>}*/}
           </div>
         </div>
       </div>

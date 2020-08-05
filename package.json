@@ -2,7 +2,7 @@
   "name": "projectaki",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://heypano.github.io/projectaki/",
+  "homepage": "http://aki.pup.codes.s3-website-us-east-1.amazonaws.com/",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -12,6 +12,7 @@
     "gh-pages": "^3.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "typescript": "^3.9.7"
   },
@@ -20,7 +21,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "preawsdeploy": "npm run build",
+    "awsdeploy": "aws --profile pupcodes s3 sync --delete --acl public-read build/ s3://aki.pup.codes",
+    "postawsdeploy": "echo http://aki.pup.codes.s3-website-us-east-1.amazonaws.com/draw"
   },
   "eslintConfig": {
     "extends": "react-app"

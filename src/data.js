@@ -19,6 +19,37 @@ export const vowelStressMap = {
 };
 
 /**
+ * All strings used in greek + english
+ * @type {}
+ */
+export const strings = {
+  aki: {
+    gr: "ακι",
+    en: "aki"
+  },
+  getYourYpokoristiko: {
+    gr: <span>Ενα Τσουβάλι Παρατσούκλια</span>,
+    en: <span>A Bunch Of Greek Nicknames</span>
+  },
+  whatsYourName: {
+    gr: "Πώς σε λένε;",
+    en: "What's your name?"
+  },
+  submitText: {
+    gr: "Για πες",
+    en: "Do tell"
+  }
+};
+
+/**
+ * Return a translated string
+ * @param code
+ * @param language
+ * @return {*}
+ */
+export const getString = (code, language) => strings[code][language];
+
+/**
  * Collecting greek endings
  * @type {}
  */
@@ -73,28 +104,28 @@ export const endings = {
  */
 export const links = {
   ουλ: {
-    en: "ουλ"
+    en: "oul"
   },
   ακ: {
-    en: "ακ"
+    en: "ak"
   },
   ατ: {
-    en: "ατ"
+    en: "at"
   },
   ιν: {
-    en: "ιν"
+    en: "in"
   },
   ικ: {
-    en: "ικ"
+    en: "ik"
   },
   πιτσ: {
-    en: "πιτσ"
+    en: "pits"
   },
   κουτσ: {
-    en: "κουτσ"
+    en: "kouts"
   },
   κουλ: {
-    en: "κουλ"
+    en: "koul"
   }
 };
 
@@ -168,13 +199,24 @@ export const combineWords = (message = "", ending = "", links = []) => {
 /**
  * Get a list of all the possible combinations (endings and links) for a given word
  * @param {string} message
- * @param {number} numLinks
+ * @param {string} language
  * @return {[]}
  */
-export const getCombinations = (message = "") => {
+export const getCombinations = (message = "", language = "gr") => {
   const result = [];
-  const allLinks = [[], ...combinations(Object.keys(links))];
-  Object.keys(endings).map((ending, endingIndex) =>
+  const translatedLinks =
+    language == "gr"
+      ? Object.keys(links)
+      : Object.keys(links).map(key => {
+          return links[key][language];
+        });
+  const allLinks = [[], ...combinations(translatedLinks)];
+  const translatedEndings =
+    language == "gr"
+      ? Object.keys(endings)
+      : Object.keys(endings).map(key => endings[key][language]);
+
+  translatedEndings.map((ending, endingIndex) =>
     allLinks.forEach((currentLinks, linkIndex) =>
       result.push(combineWords(message, ending, currentLinks))
     )
