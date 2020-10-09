@@ -1,4 +1,4 @@
-This project generates Greek-style nicknames (diminuitives) given any name
+This project generates Greek-style nicknames (diminuitives) given any name. It is hosted at https://aki.pup.codes/
 
 ## Available Scripts
 
