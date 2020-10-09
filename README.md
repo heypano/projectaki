@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project generates Greek-style nicknames (diminuitives) given any name
 
 ## Available Scripts
 
