@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap-reboot.min.css";
 import "bootstrap/dist/css/bootstrap-grid.min.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -11,13 +11,34 @@ function App({ language: initialLanguage }) {
   const { push: redirect } = useHistory();
   const [message, setMessage] = useState(decodeURIComponent(word));
   const [language, setLanguage] = useState(initialLanguage);
+  const [combinations, setCombinations] = useState([]);
   const textField = useRef();
   const s = code => getString(code, language);
   const onSubmit = e => {
     e.preventDefault();
-    setMessage(textField.current.value);
-    redirect(`/${language}/${encodeURIComponent(textField.current.value)}`);
+    if (message != textField.current.value) {
+      console.log("a");
+      setMessage(textField.current.value);
+      redirect(`/${language}/${encodeURIComponent(textField.current.value)}`);
+    }
   };
+
+  useEffect(() => {
+    const combinations = getCombinations(message, language);
+    setCombinations(combinations);
+  }, [message, language]);
+
+  const Row = ({ index, style = {}, children }) => (
+    <div
+      className={`col-12 col-md-6 col-lg-4 text-break`}
+      style={{
+        hyphens: "auto",
+        ...style
+      }}
+    >
+      {children}
+    </div>
+  );
 
   return (
     <div className="container mt-5">
@@ -81,18 +102,12 @@ function App({ language: initialLanguage }) {
           <div>
             {/*<span>{destress(getRoot(message))}</span>*/}
             {/*<br />*/}
-            {message && (
+            {combinations.length && (
               <div className="row">
-                {getCombinations(message, language).map((combo, index) => (
-                  <div
-                    className="col-12 col-md-6 col-lg-4 text-break"
-                    style={{
-                      hyphens: "auto"
-                    }}
-                    key={`${index}`}
-                  >
+                {combinations.map((combo, index) => (
+                  <Row key={index} index={index}>
                     {combo}
-                  </div>
+                  </Row>
                 ))}
               </div>
             )}
