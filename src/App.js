@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import { useParams, useHistory } from "react-router-dom";
 import { getCombinations, getString } from "./data";
+import { FixedSizeList as List } from "react-window";
+import AutoSizer from "react-virtualized-auto-sizer";
 
 function App({ language: initialLanguage }) {
   const { word = "" } = useParams();
@@ -28,7 +30,7 @@ function App({ language: initialLanguage }) {
     setCombinations(combinations);
   }, [message, language]);
 
-  const Row = ({ index, style = {}, children }) => (
+  const Row = ({ index, style }) => (
     <div
       className={`col-12 col-md-6 col-lg-4 text-break`}
       style={{
@@ -36,7 +38,7 @@ function App({ language: initialLanguage }) {
         ...style
       }}
     >
-      {children}
+      {combinations[index]}
     </div>
   );
 
@@ -99,19 +101,27 @@ function App({ language: initialLanguage }) {
           </form>
         </div>
         <div className="col-12">
-          <div>
-            {/*<span>{destress(getRoot(message))}</span>*/}
-            {/*<br />*/}
-            {combinations.length && (
-              <div className="row">
-                {combinations.map((combo, index) => (
-                  <Row key={index} index={index}>
-                    {combo}
-                  </Row>
-                ))}
-              </div>
-            )}
-          </div>
+          {/*<span>{destress(getRoot(message))}</span>*/}
+          {/*<br />*/}
+          {combinations.length && (
+            <AutoSizer
+              style={{
+                height: "70vh"
+              }}
+            >
+              {({ height, width }) => (
+                <List
+                  className="row"
+                  height={height}
+                  itemCount={1000}
+                  itemSize={35}
+                  width={width}
+                >
+                  {Row}
+                </List>
+              )}
+            </AutoSizer>
+          )}
         </div>
       </div>
     </div>
