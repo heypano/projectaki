@@ -16,7 +16,7 @@ export const vowelStressMap = {
   ό: "ο",
   ώ: "ω",
   ή: "η",
-  υ: "υ"
+  υ: "υ",
 };
 
 /**
@@ -26,20 +26,20 @@ export const vowelStressMap = {
 export const strings = {
   aki: {
     gr: "Yποκοριστιράκι",
-    en: "aki"
+    en: "aki",
   },
   getYourYpokoristiko: {
     gr: <span>Παραγωγούλης Υποκοριστικούληδων</span>,
-    en: <span>Greek Nickname Generator</span>
+    en: <span>Greek Nickname Generator</span>,
   },
   whatsYourName: {
     gr: "Πώς σε λένε;",
-    en: "What's your name?"
+    en: "What's your name?",
   },
   submitText: {
     gr: "Για πες",
-    en: "Do tell"
-  }
+    en: "Do tell",
+  },
 };
 
 /**
@@ -56,80 +56,80 @@ export const getString = (code, language) => strings[code][language];
  */
 export const endings = {
   ούλης: {
-    en: "oulis"
+    en: "oulis",
   },
   ούλα: {
-    en: "oula"
+    en: "oula",
   },
   ούλι: {
-    en: "ouli"
+    en: "ouli",
   },
   άκος: {
-    en: "akos"
+    en: "akos",
   },
   άκι: {
-    en: "aki"
+    en: "aki",
   },
   ίτσα: {
-    en: "itsa"
+    en: "itsa",
   },
   ίτσι: {
-    en: "itsi"
+    en: "itsi",
   },
   ίτα: {
-    en: "ita"
+    en: "ita",
   },
   ίτο: {
-    en: "ito"
+    en: "ito",
   },
   πίτσι: {
-    en: "pitsi"
+    en: "pitsi",
   },
   ίνι: {
-    en: "ini"
+    en: "ini",
   },
   ίνo: {
-    en: "ino"
+    en: "ino",
   },
   όνι: {
-    en: "oni"
+    en: "oni",
   },
   // μπακλαβαδάκι: {
   //   en: "baklavadaki"
   // },
   μπιρμπιλόνι: {
-    en: "birbiloni"
+    en: "birbiloni",
   },
   ούιν: {
-    en: "ouin"
+    en: "ouin",
   },
   κεφτεδάκι: {
-    en: "keftedaki"
+    en: "keftedaki",
   },
   σφαίρα: {
-    en: "sfera"
+    en: "sfera",
   },
   φάση: {
-    en: "fasi"
+    en: "fasi",
   },
   σπιτο: {
-    en: "spito"
+    en: "spito",
   },
   οεσάνς: {
-    en: "οesans"
+    en: "οesans",
   },
   αινα: {
-    en: "ena"
+    en: "ena",
   },
   σφαίριση: {
-    en: "sferisi"
+    en: "sferisi",
   },
   φλερτ: {
-    en: "flert"
+    en: "flert",
   },
   όραμα: {
-    en: "orama"
-  }
+    en: "orama",
+  },
 };
 
 /**
@@ -138,29 +138,29 @@ export const endings = {
  */
 export const links = {
   ουλ: {
-    en: "oul"
+    en: "oul",
   },
   ακ: {
-    en: "ak"
+    en: "ak",
   },
   ατ: {
-    en: "at"
+    en: "at",
   },
   ιν: {
-    en: "in"
+    en: "in",
   },
   ικ: {
-    en: "ik"
+    en: "ik",
   },
   πιτσ: {
-    en: "pits"
+    en: "pits",
   },
   κουτσ: {
-    en: "kouts"
+    en: "kouts",
   },
   κουλ: {
-    en: "koul"
-  }
+    en: "koul",
+  },
 };
 
 /**
@@ -201,7 +201,7 @@ export const getRoot = (string = "") => {
  * @return {string}
  */
 export const destress = (string = "") => {
-  Object.keys(vowelStressMap).forEach(stressedVowel => {
+  Object.keys(vowelStressMap).forEach((stressedVowel) => {
     string = string.replace(stressedVowel, vowelStressMap[stressedVowel]);
   });
   return string;
@@ -239,22 +239,24 @@ export const combineWords = (message = "", ending = "", links = []) => {
  */
 export const getCombinations = (message = "", language = "gr") => {
   const result = [];
-  const translatedLinks =
-    language === "gr"
-      ? Object.keys(links)
-      : Object.keys(links).map(key => {
-          return links[key][language];
-        });
-  const allLinks = [[], ...combinations(translatedLinks)];
-  const translatedEndings =
-    language === "gr"
-      ? Object.keys(endings)
-      : Object.keys(endings).map(key => endings[key][language]);
+  if (message) {
+    const translatedLinks =
+      language === "gr"
+        ? Object.keys(links)
+        : Object.keys(links).map((key) => {
+            return links[key][language];
+          });
+    const allLinks = [[], ...combinations(translatedLinks)];
+    const translatedEndings =
+      language === "gr"
+        ? Object.keys(endings)
+        : Object.keys(endings).map((key) => endings[key][language]);
 
-  translatedEndings.map((ending, endingIndex) =>
-    allLinks.forEach((currentLinks, linkIndex) =>
-      result.push(combineWords(message, ending, currentLinks))
-    )
-  );
+    translatedEndings.map((ending, endingIndex) =>
+      allLinks.forEach((currentLinks, linkIndex) =>
+        result.push(combineWords(message, ending, currentLinks))
+      )
+    );
+  }
   return result.sort((a, b) => a.length - b.length);
 };

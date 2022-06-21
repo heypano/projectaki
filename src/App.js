@@ -15,8 +15,8 @@ function App({ language: initialLanguage }) {
   const [language, setLanguage] = useState(initialLanguage);
   const [combinations, setCombinations] = useState([]);
   const textField = useRef();
-  const s = code => getString(code, language);
-  const onSubmit = e => {
+  const s = (code) => getString(code, language);
+  const onSubmit = (e) => {
     e.preventDefault();
     if (message != textField.current.value) {
       console.log("a");
@@ -35,7 +35,7 @@ function App({ language: initialLanguage }) {
       className={`col-12 col-md-6 col-lg-4 text-break`}
       style={{
         hyphens: "auto",
-        ...style
+        ...style,
       }}
     >
       {combinations[index]}
@@ -61,7 +61,7 @@ function App({ language: initialLanguage }) {
                     : "text-primary"
                 }
                 href="#"
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setLanguage("en");
                   redirect(`/en/${encodeURIComponent(message)}`);
@@ -77,7 +77,7 @@ function App({ language: initialLanguage }) {
                     : "text-primary"
                 }
                 href="#"
-                onClick={e => {
+                onClick={(e) => {
                   e.preventDefault();
                   setLanguage("gr");
                   redirect(`/gr/${encodeURIComponent(message)}`);
@@ -103,10 +103,11 @@ function App({ language: initialLanguage }) {
         <div className="col-12">
           {/*<span>{destress(getRoot(message))}</span>*/}
           {/*<br />*/}
-          {combinations.length && (
+
+          {combinations.length > 0 && (
             <AutoSizer
               style={{
-                height: "70vh"
+                height: "70vh",
               }}
             >
               {({ height, width }) => (
